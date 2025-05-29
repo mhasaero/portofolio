@@ -2,8 +2,8 @@ import { Bars4Icon } from "@heroicons/react/24/solid";
 
 export default function Navbar() {
   return (
-    <div className="navbar bg-base-100 shadow-sm px-8 md:px-12 lg:px-16 py-4">
-      <div className="navbar-start">
+    <div className="navbar backdrop-blur-2xl bg-blur fixed z-10 bg-transparent shadow-sm px-8 md:px-12 lg:px-16 py-6">
+      <div className="navbar-start ">
         <a className="btn btn-ghost text-xl">Log0</a>
       </div>
       <div className="navbar-end">
