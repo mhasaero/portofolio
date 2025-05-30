@@ -1,8 +1,8 @@
-import { Bars4Icon } from "@heroicons/react/24/solid";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 export default function Navbar() {
   return (
-    <div className="navbar backdrop-blur-2xl bg-blur fixed z-10 bg-transparent shadow-sm px-8 md:px-12 lg:px-16 py-6">
+    <div className="navbar backdrop-blur-2xl bg-blur fixed z-10 bg-transparent shadow-sm px-8 md:px-12 lg:px-16 py-2 md:py-6">
       <div className="navbar-start ">
         <a className="btn btn-ghost text-xl">Log0</a>
       </div>
@@ -18,7 +18,7 @@ export default function Navbar() {
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
               <label htmlFor="my-drawer">
-                <Bars4Icon className="size-6 text-white" />
+                <GiHamburgerMenu className="size-6 text-white" />
               </label>
             </div>
             <div className="drawer-side">
