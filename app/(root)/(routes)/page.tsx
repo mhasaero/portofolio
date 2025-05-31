@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import AboutUs from "@/components/AboutUs";
 
 function WScreenWrapper({ id, children }: Readonly<{ id: string; children: React.ReactNode }>) {
   return (
@@ -16,6 +17,7 @@ export default function page() {
       <WScreenWrapper id="hero">
         <Hero />
       </WScreenWrapper>
+      <AboutUs />
       <div className="min-h-screen"></div>
     </section>
   );
