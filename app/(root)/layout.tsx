@@ -13,9 +13,7 @@ export default function MainLayout({
 
   return (
     <main className="px-8 md:px-12 lg:px-16">
-      <nav className="-mx-8 md:-mx-12 lg:-mx-16">
-        <Navbar />
-      </nav>
+      <Navbar />
       {children}
     </main>
   );

@@ -2,8 +2,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 export default function Navbar() {
   return (
-    <div className="navbar backdrop-blur-2xl bg-blur fixed z-10 bg-transparent shadow-sm px-8 md:px-12 lg:px-16 py-2 md:py-6">
-      <div className="navbar-start ">
+    <nav className="navbar fixed z-10 bg-transparent backdrop-blur-sm shadow-md px-8 md:px-12 lg:px-16 py-2 md:py-6 left-0">
+      <div className="navbar-start">
         <a className="btn btn-ghost text-xl">Log0</a>
       </div>
       <div className="navbar-end">
@@ -33,7 +33,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   );
 }
 

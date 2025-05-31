@@ -13,13 +13,13 @@ export default function Hero() {
         backgroundImage: "url(kaela-bg.jpg)",
       }}
     >
-      <div className="pt-20 md:pt-24 lg:pt-none lg:min-h-screen backdrop-blur-md px-8 md:px-12 lg:px-16 flex flex-col lg:flex-row items-center md:gap-8">
-        <div className="rounded-full border-2 border-white relative overflow-hidden">
-          <Image src={"/ilham-syafik.png"} width={500} height={500} alt="ilham syafik" className={"rounded-full w-64"} />
+      <div className=" lg:min-h-screen backdrop-blur-sm px-8 md:px-12 lg:px-16 flex flex-col lg:flex-row items-center md:gap-8 pt-24 lg:pt-0 ">
+        <div className="rounded-full border-2 border-white relative overflow-hidden lg:w-1/2 backdrop-blur-sm">
+          <Image src={"/ilham-syafik.png"} width={500} height={500} alt="ilham syafik" className={"rounded-full w-full"} />
         </div>
-        <div className=" py-8 w-3/4 space-y-2">
+        <div className="py-8 w-full lg:w-3/4 lg:space-y-2 text-center lg:text-start">
           <h1 className="text-2xl md:text-5xl font-bold">M. Ilham Syafik</h1>
-          <h2 className="text-base md:text-lg mb-4">Web Developer | Prompter | Kobolonimbus</h2>
+          <h2 className="text-xs md:text-lg mb-4">Web Developer | Prompter | Kobolonimbus</h2>
           <p className="md:block hidden text-xl mb-4">
             Hello! I am a front-end developer who is passionate about building responsive and user-friendly web interfaces. With experience in React, TypeScript, and backend integrations such as Supabase or Laravel, I am constantly learning
             and evolving to create efficient and impactful digital solutions.
