@@ -46,7 +46,7 @@ function EmptyCard() {
   );
 }
 
-export default function AboutUs() {
+export default function AboutMe() {
   const [hide, setHide] = useState<{ [key: string]: string }>({ hide1: "", hide2: "", hide3: "" });
   const [hfit, setHfit] = useState<{ [key: string]: string }>({ hfit1: "", hfit2: "", hfit3: "" });
   const [empty, setEmpty] = useState(0);
@@ -64,7 +64,7 @@ export default function AboutUs() {
   };
 
   return (
-    <section id="about-us" className="space-y-16 pt-16">
+    <section id="about-me" className="space-y-16 pt-36">
       <h1 className="text-5xl text-center font-semibold">About Me</h1>
       <div className="flex justify-evenly flex-wrap gap-6">
         {aboutus.map((item, index) => (

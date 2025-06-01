@@ -1,4 +1,24 @@
+import { title } from "process";
 import { GiHamburgerMenu } from "react-icons/gi";
+
+const NavList = [
+  {
+    title: "Home",
+    href: "#hero",
+  },
+  {
+    title: "About Me",
+    href: "#about-me",
+  },
+  {
+    title: "My Works",
+    href: "#works",
+  },
+  {
+    title: "CTA",
+    href: "#cta",
+  },
+];
 
 export default function Navbar() {
   return (
@@ -8,10 +28,13 @@ export default function Navbar() {
       </div>
       <div className="navbar-end">
         <ul className="hidden md:flex gap-6">
-          <li>Home</li>
-          <li>About Me</li>
-          <li>My Works</li>
-          <li>CTA</li>
+          {NavList.map((item, index) => (
+            <li key={index}>
+              <a href={item.href} className="text-white hover:text-primary transition-colors duration-300">
+                {item.title}
+              </a>
+            </li>
+          ))}
         </ul>
         <div className="dropdown md:hidden">
           <div className="drawer">
@@ -24,10 +47,13 @@ export default function Navbar() {
             <div className="drawer-side">
               <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
               <ul className="menu bg-base-200 text-base-content rounded-box text-base min-h-full w-1/2 py-6 space-y-4 ps-8 border-e-4 border-base-300">
-                <li>Home</li>
-                <li>About Me</li>
-                <li>My Works</li>
-                <li>CTA</li>
+                {NavList.map((item, index) => (
+                  <li key={index}>
+                    <a href={item.href} className="text-white hover:text-primary transition-colors duration-300">
+                      {item.title}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
