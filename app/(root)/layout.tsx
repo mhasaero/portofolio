@@ -12,12 +12,7 @@ export default function MainLayout({
   if (!user) return <Login />;
 
   return (
-    <main
-      className="px-8 md:px-12 lg:px-16 bg-opacity-90 bg-fixed bg-center bg-cover"
-      style={{
-        backgroundImage: "url(kaela-bg.jpg)",
-      }}
-    >
+    <main className="px-8 md:px-12 lg:px-16 bg-opacity-90 bg-fixed bg-center bg-cover bg-linear-to-r from-cyan-500 from-40% to-blue-500">
       <Navbar />
       {children}
     </main>

@@ -66,19 +66,31 @@ const gameImgCard = [
     alt: "Valorant",
   },
   {
-    src: "/zenless-zone-zero.png",
+    src: "/zzz.png",
     alt: "Zenless Zone Zero",
   },
   {
-    src: "/wuthering-waves.png",
+    src: "/wuwa.png",
     alt: "Wuthering Waves",
+  },
+  {
+    src: "/honkaiimpact3.png",
+    alt: "Honkai Impact 3rd",
   },
 ];
 
 const vtuberImgCard = [
   {
-    src: "/kobo-kanaeru.png",
+    src: "/kobo.png",
     alt: "Kobo Kanaeru",
+  },
+  {
+    src: "/kaela.png",
+    alt: "Kaela Kovalskia",
+  },
+  {
+    src: "/zeta.png",
+    alt: "Vestia Zeta",
   },
   {
     src: "/hololive.png",
@@ -88,7 +100,7 @@ const vtuberImgCard = [
 
 export default function AboutMe() {
   const [hide, setHide] = useState<{ [key: string]: string }>({ card1: "", card2: "", card3: "" });
-  const [block, setBlock] = useState<{ [key: string]: string }>({ card1: "hidden", card2: "hidden", card3: "hidden" });
+  const [flex, setBlock] = useState<{ [key: string]: string }>({ card1: "hidden", card2: "hidden", card3: "hidden" });
   const [hfit, setHfit] = useState<{ [key: string]: string }>({ card1: "", card2: "", card3: "" });
 
   const toggleHide = (keyCard: string) => {
@@ -98,7 +110,7 @@ export default function AboutMe() {
     }));
     setBlock((prev) => ({
       ...prev,
-      [keyCard]: prev[keyCard] === "hidden" ? "block" : "hidden",
+      [keyCard]: prev[keyCard] === "hidden" ? "flex" : "hidden",
     }));
     setHfit((prev) => ({
       ...prev,
@@ -114,30 +126,31 @@ export default function AboutMe() {
           <div key={index} className={`${hfit[item.card]} border-2 border-white px-6 py-4 w-88 overflow-hidden gap-4 flex flex-col rounded-md md:h-126`}>
             <h1 className="text-lg font-bold">{item.title}</h1>
             <p className={`${hide[item.card]} text-sm`}>{item.description}</p>
-            <div className={`${block[item.card]} flex flex-wrap space-y-8 justify-between items-center`}>
+            <div className={`${flex[item.card]} flex-wrap gap-y-8 justify-between items-center `}>
               {item.title === "Web Developer" &&
                 webImgCard.map((img, imgIndex) => (
-                  <Link key={imgIndex} href="#" target="_blank" rel="noopener noreferrer" className="hover:shadow-[0_0_15px_5px_rgba(143,36,38,0.25)] transition-all ease-in-out duration-500 rounded-md">
-                    <Image src={img.src} width={500} height={500} alt={img.alt} className={"w-20"} />
+                  <Link key={imgIndex} href="#" target="_blank" rel="noopener noreferrer" className="group hover:shadow-[0_0_10px_10px_rgba(143,36,38,0.25)] transition-all ease-in-out duration-500 rounded-md">
+                    <Image src={img.src} width={500} height={500} alt={img.alt} className={"w-20 group-hover:scale-125 rounded-md duration-300 transition-all ease-in-out"} />
+                    <span className="relative">Next JS</span>
                   </Link>
                 ))}
               {item.title === "Full-Time Gamer" &&
                 gameImgCard.map((img, imgIndex) => (
-                  <Link key={imgIndex} href="#" target="_blank" rel="noopener noreferrer" className="hover:shadow-md hover:shadow-primary transition-all ease-in-out duration-500 rounded-md p-1">
-                    <Image src={img.src} width={500} height={500} alt={img.alt} className={"w-20"} />
+                  <Link key={imgIndex} href="#" target="_blank" rel="noopener noreferrer" className="group hover:shadow-[0_0_10px_10px_rgba(143,36,38,0.25)] transition-all ease-in-out duration-500 rounded-md">
+                    <Image src={img.src} width={500} height={500} alt={img.alt} className={"w-20 group-hover:scale-125 rounded-md duration-300 transition-all ease-in-out"} />
                   </Link>
                 ))}
               {item.title === "Kobolonimbus" &&
                 vtuberImgCard.map((img, imgIndex) => (
-                  <Link key={imgIndex} href="#" target="_blank" rel="noopener noreferrer" className="hover:shadow-md hover:shadow-primary transition-all ease-in-out duration-500 rounded-md p-1">
-                    <Image src={img.src} width={500} height={500} alt={img.alt} className={"w-20"} />
+                  <Link key={imgIndex} href="#" target="_blank" rel="noopener noreferrer" className="group hover:shadow-[0_0_10px_10px_rgba(143,36,38,0.25)] transition-all ease-in-out duration-500 rounded-md">
+                    <Image src={img.src} width={500} height={500} alt={img.alt} className={"w-20 group-hover:scale-125 rounded-md duration-300 transition-all ease-in-out"} />
                   </Link>
                 ))}
             </div>
-            <div className="flex justify-end items-end mt-auto gap-2">
-              <p className={`text-xs`}>Click to {hide[item.card] === "" ? "Show" : "Hide"} Images</p>
-              <button className="btn btn-sm" onClick={() => toggleHide(item.card)}>
-                {hide[item.card] === "" ? "Hide" : "Show"}
+            <div className="flex justify-end items-center mt-auto gap-4">
+              {/* <p className={`text-xs`}>Click to {hide[item.card] === "" ? "Show" : "Hide"} Images</p> */}
+              <button className="" onClick={() => toggleHide(item.card)}>
+                Click to {hide[item.card] === "" ? "Show" : "Hide"} Images
               </button>
             </div>
           </div>
