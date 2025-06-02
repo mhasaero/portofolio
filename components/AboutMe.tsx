@@ -1,12 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-
-type hideProps = {
-  hide1: string;
-  hide2: string;
-  hide3: string;
-};
+import Image from "next/image";
+import Link from "next/link";
 
 const aboutus = [
   {
@@ -15,70 +11,137 @@ const aboutus = [
             I've worked with both Firebase and Supabase as backend-as-a-service platforms to power real-time features and user authentication. My focus lies in creating seamless user experiences—whether it's crafting intuitive dashboards,
             building admin panels, or integrating third-party APIs. I love solving frontend problems and turning complex ideas into elegant, user-friendly interfaces. For me, frontend is not just about visuals—it's about how users feel when
             interacting with your product.`,
-    hide: "hide1",
-    hfit: "hfit1",
+    card: "card1",
   },
   {
     title: "Full-Time Gamer",
     description: `Gaming is more than just a hobby—it's part of who I am. I dive deep into RPGs like Zenless Zone Zero (ZZZ) and Wuthering Waves (Wuwa), where I can get lost in the worldbuilding, characters, and immersive combat systems. These
             days, I spend most of my time on Valorant, sharpening my aim, communicating with teammates, and learning from every match. I enjoy both casual and competitive games, across a wide range of genres, because I believe every game
             has something unique to offer. Gaming helps me unwind, learn, and think strategically in ways that even carry over to how I approach coding.`,
-    hide: "hide2",
-    hfit: "hfit2",
+    card: "card2",
   },
   {
     title: "Kobolonimbus",
     description: `I'm a passionate fan of Hololive, and my heart belongs to none other than Kobo Kanaeru. As a proud Kobolonimbus, I follow her chaotic streams, her music, and her journey as an Indonesian VTuber who's full of surprises, memes,
             and unfiltered fun. Kobo's energy and creativity inspire me—not just as a fan, but also in my own work. Her blend of humor, authenticity, and community spirit fuels my love for internet culture and reminds me why I love being
             part of fandoms that bring people together from all over the world.`,
-    hide: "hide3",
-    hfit: "hfit3",
+    card: "card3",
   },
 ];
 
-function EmptyCard() {
-  return (
-    <div className="border-2 border-white px-6 py-4 w-80 gap-4 flex flex-col">
-      <h1 className="text-lg font-bold">Empty</h1>
-      <button></button>
-      <p className="text-sm">No content available.</p>
-    </div>
-  );
-}
+const webImgCard = [
+  {
+    src: "/nextjs.png",
+    alt: "Next.js",
+  },
+  {
+    src: "/typescript.png",
+    alt: "TypeScript",
+  },
+  {
+    src: "/react.png",
+    alt: "React",
+  },
+  {
+    src: "/supabase.png",
+    alt: "Supabase",
+  },
+  {
+    src: "/firebase.png",
+    alt: "Firebase",
+  },
+  {
+    src: "/laravel.png",
+    alt: "Laravel",
+  },
+  {
+    src: "/tailwind.png",
+    alt: "Tailwind CSS",
+  },
+];
+
+const gameImgCard = [
+  {
+    src: "/valorant.png",
+    alt: "Valorant",
+  },
+  {
+    src: "/zenless-zone-zero.png",
+    alt: "Zenless Zone Zero",
+  },
+  {
+    src: "/wuthering-waves.png",
+    alt: "Wuthering Waves",
+  },
+];
+
+const vtuberImgCard = [
+  {
+    src: "/kobo-kanaeru.png",
+    alt: "Kobo Kanaeru",
+  },
+  {
+    src: "/hololive.png",
+    alt: "Hololive",
+  },
+];
 
 export default function AboutMe() {
-  const [hide, setHide] = useState<{ [key: string]: string }>({ hide1: "", hide2: "", hide3: "" });
-  const [hfit, setHfit] = useState<{ [key: string]: string }>({ hfit1: "", hfit2: "", hfit3: "" });
-  const [empty, setEmpty] = useState(0);
+  const [hide, setHide] = useState<{ [key: string]: string }>({ card1: "", card2: "", card3: "" });
+  const [block, setBlock] = useState<{ [key: string]: string }>({ card1: "hidden", card2: "hidden", card3: "hidden" });
+  const [hfit, setHfit] = useState<{ [key: string]: string }>({ card1: "", card2: "", card3: "" });
 
-  const toggleHide = (keyHide: string, keyHfit: string) => {
-    // hide[key] === "" ? setEmpty(empty + 1) : setEmpty(empty - 1);
+  const toggleHide = (keyCard: string) => {
     setHide((prev) => ({
       ...prev,
-      [keyHide]: prev[keyHide] === "" ? "hidden" : "",
+      [keyCard]: prev[keyCard] === "" ? "hidden" : "",
+    }));
+    setBlock((prev) => ({
+      ...prev,
+      [keyCard]: prev[keyCard] === "hidden" ? "block" : "hidden",
     }));
     setHfit((prev) => ({
       ...prev,
-      [keyHfit]: prev[keyHfit] === "" ? "h-fit" : "",
+      [keyCard]: prev[keyCard] === "" ? "h-fit" : "",
     }));
   };
 
   return (
-    <section id="about-me" className="space-y-16 pt-36">
-      <h1 className="text-5xl text-center font-semibold">About Me</h1>
+    <section id="about-me" className="space-y-16 py-32  backdrop-blur-sm bg-background/80 px-8 md:px-12 lg:px-16 ">
+      <h1 className="text-5xl text-center font-semibold ">About Me</h1>
       <div className="flex justify-evenly flex-wrap gap-6">
         {aboutus.map((item, index) => (
-          <div key={index} className={`${hfit[item.hfit]} border-2 border-white px-6 py-4 w-80 gap-4 flex flex-col rounded-md`}>
+          <div key={index} className={`${hfit[item.card]} border-2 border-white px-6 py-4 w-88 overflow-hidden gap-4 flex flex-col rounded-md md:h-126`}>
             <h1 className="text-lg font-bold">{item.title}</h1>
-            <p className={`${hide[item.hide]} text-sm`}>{item.description}</p>
-            <div className="flex justify-end mt-auto">
-              <button className="btn btn-sm" onClick={() => toggleHide(item.hide, item.hfit)}>
-                {hide[item.hide] === "" ? "Hide" : "Show"}
+            <p className={`${hide[item.card]} text-sm`}>{item.description}</p>
+            <div className={`${block[item.card]} flex flex-wrap space-y-8 justify-between items-center`}>
+              {item.title === "Web Developer" &&
+                webImgCard.map((img, imgIndex) => (
+                  <Link key={imgIndex} href="#" target="_blank" rel="noopener noreferrer" className="hover:shadow-[0_0_15px_5px_rgba(143,36,38,0.25)] transition-all ease-in-out duration-500 rounded-md">
+                    <Image src={img.src} width={500} height={500} alt={img.alt} className={"w-20"} />
+                  </Link>
+                ))}
+              {item.title === "Full-Time Gamer" &&
+                gameImgCard.map((img, imgIndex) => (
+                  <Link key={imgIndex} href="#" target="_blank" rel="noopener noreferrer" className="hover:shadow-md hover:shadow-primary transition-all ease-in-out duration-500 rounded-md p-1">
+                    <Image src={img.src} width={500} height={500} alt={img.alt} className={"w-20"} />
+                  </Link>
+                ))}
+              {item.title === "Kobolonimbus" &&
+                vtuberImgCard.map((img, imgIndex) => (
+                  <Link key={imgIndex} href="#" target="_blank" rel="noopener noreferrer" className="hover:shadow-md hover:shadow-primary transition-all ease-in-out duration-500 rounded-md p-1">
+                    <Image src={img.src} width={500} height={500} alt={img.alt} className={"w-20"} />
+                  </Link>
+                ))}
+            </div>
+            <div className="flex justify-end items-end mt-auto gap-2">
+              <p className={`text-xs`}>Click to {hide[item.card] === "" ? "Show" : "Hide"} Images</p>
+              <button className="btn btn-sm" onClick={() => toggleHide(item.card)}>
+                {hide[item.card] === "" ? "Hide" : "Show"}
               </button>
             </div>
           </div>
         ))}
-        {/* {empty > 0 ? Array.from({ length: empty }).map((_, index) => <EmptyCard key={index} />) : ""} */}
       </div>
     </section>
   );

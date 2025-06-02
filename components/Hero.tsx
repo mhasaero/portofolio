@@ -6,13 +6,7 @@ import { FaInstagram, FaWhatsapp, FaLinkedin } from "react-icons/fa6";
 
 export default function Hero() {
   return (
-    <section
-      id="hero"
-      className="lg:min-h-screen bg-fixed bg-center bg-cover "
-      style={{
-        backgroundImage: "url(kaela-bg.jpg)",
-      }}
-    >
+    <section id="hero" className="lg:min-h-screen bg-fixed bg-center bg-cover ">
       <div className=" lg:min-h-screen backdrop-blur-sm px-8 md:px-12 lg:px-16 flex flex-col lg:flex-row items-center md:gap-8 pt-24 lg:pt-0 ">
         <div className="rounded-full border-2 border-white relative overflow-hidden lg:w-1/2 backdrop-blur-sm">
           <Image src={"/ilham-syafik.png"} width={500} height={500} alt="ilham syafik" className={"rounded-full w-full"} />
